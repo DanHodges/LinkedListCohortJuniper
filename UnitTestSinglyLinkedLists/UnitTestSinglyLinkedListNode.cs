@@ -54,7 +54,6 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedListNode node = new SinglyLinkedListNode("foo");
             Assert.IsTrue(node.IsLast());
-
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/bsc2ak47.aspx
@@ -101,8 +100,8 @@ namespace UnitTestSinglyLinkedLists
         [TestMethod]
         public void NodeGreaterThan()
         {
-            SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
-            SinglyLinkedListNode node2 = new SinglyLinkedListNode("bar");
+           SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
+           SinglyLinkedListNode node2 = new SinglyLinkedListNode("bar");
            Assert.IsTrue(node1 > node2);
         }
 

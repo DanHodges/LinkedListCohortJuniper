@@ -66,11 +66,31 @@ namespace SinglyLinkedLists
 
         public bool IsLast()
         {
-            throw new NotImplementedException();
+            if (null == this.Next)//it is last true
+            {
+                return true;
+            }
+            else // it is not true return false
+            {
+                return false;
+            }
         }
         public override string ToString()
         {
-            return value;
+            return value.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is SinglyLinkedListNode)
+            {
+                SinglyLinkedListNode obj2 = obj as SinglyLinkedListNode;
+                return Equals(obj2.Value, this.Value);
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
