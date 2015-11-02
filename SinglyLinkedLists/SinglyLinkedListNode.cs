@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -36,6 +37,7 @@ namespace SinglyLinkedLists
         public string Value 
         {
             get { return value; }
+            set { this.value = value; }
         }
 
         public static bool operator <(SinglyLinkedListNode node1, SinglyLinkedListNode node2)
@@ -61,7 +63,16 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/system.icomparable.compareto.aspx
         public int CompareTo(Object obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return 1;
+            SinglyLinkedListNode node = obj as SinglyLinkedListNode;
+            if (node != null)
+            {
+                return Value.CompareTo(node.Value);
+            }
+            else
+            {
+                throw new ArgumentException("blah blah blah");
+            }
         }
 
         public bool IsLast()
@@ -75,10 +86,6 @@ namespace SinglyLinkedLists
                 return false;
             }
         }
-        public override string ToString()
-        {
-            return value.ToString();
-        }
 
         public override bool Equals(object obj)
         {
@@ -91,6 +98,10 @@ namespace SinglyLinkedLists
             {
                 return false;
             }
+        }
+        public override string ToString()
+        {
+            return Value.ToString();
         }
     }
 }

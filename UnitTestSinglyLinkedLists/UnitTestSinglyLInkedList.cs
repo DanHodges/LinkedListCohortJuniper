@@ -122,6 +122,13 @@ namespace UnitTestSinglyLinkedLists
         }
 
         [TestMethod]
+        public void ToStringThingsAreEqualWhenCount()
+        {
+            SinglyLinkedList list = new SinglyLinkedList();
+            Assert.AreEqual(-1, list.Count());
+        }
+
+        [TestMethod]
         public void ToStringOnSingleItemList()
         {
             SinglyLinkedList list = new SinglyLinkedList();
