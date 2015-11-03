@@ -49,13 +49,16 @@ namespace UnitTestSinglyLinkedLists
         }
 
         [TestMethod]
-        public void ElementAt1()
+        public void ElementAt()
         {
             SinglyLinkedList list = new SinglyLinkedList();
             list.AddLast("foo");
             list.AddLast("bar");
             list.AddLast("grille");
-            Assert.AreEqual("bar", list.ElementAt(1));
+            list.AddLast("aay");
+            list.AddLast("bee");
+            list.AddLast("cee");
+            Assert.AreEqual("aay", list.ElementAt(3));
         }
 
         [TestMethod]
@@ -88,7 +91,7 @@ namespace UnitTestSinglyLinkedLists
             list.AddLast("grille");
             list.ElementAt(-2);
         }
-        
+
         [TestMethod]
         public void LastOnEmptyList()
         {
@@ -235,6 +238,7 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedList list = new SinglyLinkedList("foo");
             var expected = new string[] { "foo" };
+            //throw new ArgumentException(list.ToArray().ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
@@ -258,6 +262,7 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille");
             list[2] = "cat";
+            //throw new ArgumentException(list.ToString()); // foo bar grille cat
             Assert.AreEqual("cat", list[2]);
         }
 
@@ -267,6 +272,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille");
             list[2] = "cat";
             var expected = new string[] { "foo", "bar", "cat" };
+            //throw new ArgumentException(list.ToString()); // foo cat cat grille
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
@@ -276,6 +282,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille");
             list.Remove("foo");
             var expected = new string[] { "bar", "grille" };
+            throw new ArgumentException(list.ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
