@@ -282,7 +282,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille");
             list.Remove("foo");
             var expected = new string[] { "bar", "grille" };
-            throw new ArgumentException(list.ToString());
+            //throw new ArgumentException(list.ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
@@ -301,6 +301,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille");
             list.Remove("grille");
             var expected = new string[] { "foo", "bar" };
+            //throw new ArgumentException(list.ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 

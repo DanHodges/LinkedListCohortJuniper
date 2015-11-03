@@ -109,7 +109,7 @@ namespace SinglyLinkedLists
         }
 
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
-        public int Count() { return count; }
+        public int Count() { return count + 1; }
 
         public string ElementAt(int index)
         {
@@ -176,11 +176,29 @@ namespace SinglyLinkedLists
         public void Remove(string value)
         {
             int nodeint = IndexOf(value);
-            SinglyLinkedListNode node = NodeAt(nodeint);
-            node = null;
-            //SinglyLinkedListNode previousnode = NodeAt(nodeint-1);
-            //SinglyLinkedListNode nextnode = NodeAt(nodeint+1);
-            //previousnode.Next = nextnode;
+            if (nodeint == 0)
+            {
+                first = NodeAt(1);
+                count--;
+                
+            }
+            else if (nodeint == - 1)
+            {
+                
+            }
+           else if (nodeint == count)
+            {
+                last = NodeAt(count - 1);
+                last.Next = null;
+                NodeAt(count - 2).Next = last;
+                //throw new ArgumentException(last.ToString());
+                count--;
+            }
+            else
+            {
+                NodeAt(nodeint - 1).Next = NodeAt(nodeint + 1);
+                count--;
+            }
         }
 
         public void Sort()
@@ -191,7 +209,7 @@ namespace SinglyLinkedLists
         public string[] ToArray()
         {
             List<string> NodeList = new List<string>();
-            if (Count() == -1)
+            if (Count() -1 == -1)
             {
                 return NodeList.ToArray();
             }
