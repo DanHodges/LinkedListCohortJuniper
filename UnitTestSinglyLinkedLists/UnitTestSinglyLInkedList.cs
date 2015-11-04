@@ -353,6 +353,7 @@ namespace UnitTestSinglyLinkedLists
         public void CountChangesOnRemoval()
         {
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille");
+           // throw new ArgumentException(list.Count().ToString());
             list.Remove("foo");
             Assert.AreEqual(2, list.Count());
             list.Remove("bar");
@@ -445,6 +446,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList();
             list.Sort();
             var expected = new string[] { };
+            //hrow new ArgumentException(list.ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
@@ -481,6 +483,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille", "zoo", "cat");
             list.Sort();
             var expected = new string[] { "bar", "cat", "foo", "grille", "zoo" };
+            //throw new ArgumentException(list.ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 

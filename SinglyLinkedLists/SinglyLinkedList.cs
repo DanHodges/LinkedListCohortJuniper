@@ -162,7 +162,14 @@ namespace SinglyLinkedLists
             return index;
         }
 
-        public bool IsSorted() { throw new NotImplementedException(); }
+        public bool IsSorted() {
+            for (int i = 0; i < count; i++) {
+                if(NodeAt(i) > NodeAt(i + 1))
+                {
+                    return false;
+                }
+            } return true;
+        }
 
         // HINT 1: You can extract this functionality (finding the last item in the list) from a method you've already written!
         // HINT 2: I suggest writing a private helper method LastNode()
@@ -176,11 +183,19 @@ namespace SinglyLinkedLists
         public void Remove(string value)
         {
             int nodeint = IndexOf(value);
+            //throw new ArgumentException(count.To)
             if (nodeint == 0)
             {
-                first = NodeAt(1);
+                if (count == 0)
+                {
+                    first = null;
+                    last = null;
+                }
+                else
+                {
+                    first = NodeAt(1);
+                }
                 count--;
-                
             }
             else if (nodeint == - 1)
             {
@@ -203,7 +218,27 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            throw new NotImplementedException();
+            {
+                int i, j;
+                int N = count;
+
+                for (j = N - 1; j > 0; j--)
+                {
+                    for (i = 0; i < j; i++)
+                    {
+                        int z = (i + 2 > count) ? (i - count) : (i);
+                        if (NodeAt(z) > NodeAt(z + 1))
+                        {
+                            SinglyLinkedListNode first = NodeAt(z);
+                            SinglyLinkedListNode second = NodeAt(z+1);
+                            NodeAt(z).Value = second.Value;
+                            NodeAt(z).Next = second.Next;
+                            NodeAt(z + 1).Value = first.Value;
+                            NodeAt(z + 1).Next = NodeAt(z + 2);
+                        }
+                    }
+                }
+            }
         }
 
         public string[] ToArray()
