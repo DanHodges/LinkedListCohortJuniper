@@ -218,28 +218,83 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
+            if (count == 0)
             {
-                int i, j;
-                int N = count;
-
-                for (j = N - 1; j > 0; j--)
+                return;
+            }
+            while (true)
+            {
+                SinglyLinkedListNode left = first;
+                SinglyLinkedListNode right = first.Next;
+                bool swapOccured = false;
+                while (right != null)
                 {
-                    for (i = 0; i < j; i++)
+                    if (left > right)
                     {
-                        int z = (i + 2 > count) ? (i - count) : (i);
-                        if (NodeAt(z) > NodeAt(z + 1))
-                        {
-                            SinglyLinkedListNode first = NodeAt(z);
-                            SinglyLinkedListNode second = NodeAt(z+1);
-                            NodeAt(z).Value = second.Value;
-                            NodeAt(z).Next = second.Next;
-                            NodeAt(z + 1).Value = first.Value;
-                            NodeAt(z + 1).Next = NodeAt(z + 2);
-                        }
+                        string value = left.Value;
+                        left.Value = right.Value;
+                        right.Value = value;
+                        swapOccured = true;
                     }
+                    left = right;
+                    right = left.Next;
+                }
+                if (swapOccured)
+                {
+                    Sort();
                 }
             }
         }
+
+        //public void Sort()
+        //{
+        //    if (count == 0)
+        //    {
+        //        return;
+        //    }
+        //    while (true)
+        //    {
+        //        SinglyLinkedListNode left = first;
+        //        SinglyLinkedListNode right = first.Next;
+        //        bool swapOccured = false;
+        //        while (right != null)
+        //        {
+        //            if (left > right)
+        //            {
+        //                string value = left.Value;
+        //                left.Value = right.Value;
+        //                right.Value = value;
+        //                swapOccured = true;
+        //            }
+        //            left = right;
+        //            right = left.Next;
+        //        }
+        //        if (!swapOccured)
+        //        {
+        //            return;
+        //        }
+        //    }
+        //}
+
+        //public void Sort()
+        //{
+        //    while (!IsSorted())
+        //    {
+        //        SinglyLinkedListNode left = first;
+        //        SinglyLinkedListNode right = first.Next;
+        //        while (right != null)
+        //        {
+        //            if (left > right)
+        //            {
+        //                string value = left.Value;
+        //                left.Value = right.Value;
+        //                right.Value = value;
+        //            }
+        //            left = right;
+        //            right = left.Next;
+        //        }
+        //    }
+        //}
 
         public string[] ToArray()
         {
@@ -283,3 +338,46 @@ namespace SinglyLinkedLists
         }
     }
 }
+            //{
+            //    int i, j;
+            //    int N = count;
+
+            //    if (count == 1)
+            //    {
+            //        int iffer = string.Compare(first.ToString(), last.ToString());
+            //        if (iffer == 1)
+            //        {
+            //            string storage = first.ToString();
+            //            first.Value = last.ToString();
+            //            last.Value = storage.ToString();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        SinglyLinkedListNode node = first;
+            //        int counter = 0;
+            //        while (counter < count*count)
+            //        {
+            //            if (ElementAt(count) == node.ToString())
+            //            {
+            //                node = first;
+            //            }
+            //            if (node.CompareTo(node.Next) > 0)
+            //            {
+            //                string NodeValue = node.Value;
+            //                node.Value = node.Next.Value;
+            //                node.Next.Value = NodeValue;
+            //                node = node.Next;
+            //            }
+            //            else
+            //            {
+            //                node = node.Next;
+            //                if (IndexOf(node.ToString()) == count -1)
+            //                {
+            //                    node = first;
+            //                }
+            //            }
+            //            counter++;
+            //        }                       
+            //    }
+            //}

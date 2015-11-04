@@ -125,13 +125,6 @@ namespace UnitTestSinglyLinkedLists
         }
 
         [TestMethod]
-        public void ToStringThingsAreEqualWhenCount()
-        {
-            SinglyLinkedList list = new SinglyLinkedList();
-            Assert.AreEqual(-1, list.Count());
-        }
-
-        [TestMethod]
         public void ToStringOnSingleItemList()
         {
             SinglyLinkedList list = new SinglyLinkedList();
@@ -464,6 +457,7 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar");
             list.Sort();
+            //throw new ArgumentException(list.ToString());
             var expected = new string[] { "bar", "foo" };
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
@@ -493,6 +487,7 @@ namespace UnitTestSinglyLinkedLists
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille", "bar");
             list.Sort();
             var expected = new string[] { "bar", "bar", "foo", "grille" };
+            //throw new ArgumentException(list.ToString());
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
     }
