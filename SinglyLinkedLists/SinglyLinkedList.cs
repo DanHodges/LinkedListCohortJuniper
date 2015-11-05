@@ -218,15 +218,10 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            if (count == 0)
-            {
-                return;
-            }
-            while (true)
+            while (!IsSorted())
             {
                 SinglyLinkedListNode left = first;
                 SinglyLinkedListNode right = first.Next;
-                bool swapOccured = false;
                 while (right != null)
                 {
                     if (left > right)
@@ -234,67 +229,13 @@ namespace SinglyLinkedLists
                         string value = left.Value;
                         left.Value = right.Value;
                         right.Value = value;
-                        swapOccured = true;
                     }
                     left = right;
                     right = left.Next;
                 }
-                if (swapOccured)
-                {
-                    Sort();
-                }
             }
         }
 
-        //public void Sort()
-        //{
-        //    if (count == 0)
-        //    {
-        //        return;
-        //    }
-        //    while (true)
-        //    {
-        //        SinglyLinkedListNode left = first;
-        //        SinglyLinkedListNode right = first.Next;
-        //        bool swapOccured = false;
-        //        while (right != null)
-        //        {
-        //            if (left > right)
-        //            {
-        //                string value = left.Value;
-        //                left.Value = right.Value;
-        //                right.Value = value;
-        //                swapOccured = true;
-        //            }
-        //            left = right;
-        //            right = left.Next;
-        //        }
-        //        if (!swapOccured)
-        //        {
-        //            return;
-        //        }
-        //    }
-        //}
-
-        //public void Sort()
-        //{
-        //    while (!IsSorted())
-        //    {
-        //        SinglyLinkedListNode left = first;
-        //        SinglyLinkedListNode right = first.Next;
-        //        while (right != null)
-        //        {
-        //            if (left > right)
-        //            {
-        //                string value = left.Value;
-        //                left.Value = right.Value;
-        //                right.Value = value;
-        //            }
-        //            left = right;
-        //            right = left.Next;
-        //        }
-        //    }
-        //}
 
         public string[] ToArray()
         {
@@ -305,7 +246,7 @@ namespace SinglyLinkedLists
             }
             NodeList.Add(first.ToString());
             int i = 1;
-            while (GetIndex(i) != null)
+            while (i <= count + 1)
             {
                 try
                 {
@@ -381,3 +322,123 @@ namespace SinglyLinkedLists
             //        }                       
             //    }
             //}
+        //public void Sort()
+        //{
+        //    if (IsSorted())
+        //    {
+        //        return;
+        //    }
+        //    SinglyLinkedListNode previous = null;
+        //    SinglyLinkedListNode current = first;
+        //    SinglyLinkedListNode next = first.Next;
+        //    bool swapOccured = false;
+        //    while (next != null)
+        //    {
+        //        if (current > next)
+        //        {
+        //            Swappy(previous, current);
+        //            swapOccured = true;
+        //        }
+        //        previous = current;
+        //        current = next;
+        //        next = current.Next;
+        //    }
+        //    if (swapOccured)
+        //    {
+        //        Sort();
+        //    }
+        //}
+
+        //public void Swappy(SinglyLinkedListNode previous, SinglyLinkedListNode swappee)
+        //{
+        //    SinglyLinkedListNode swapWith = swappee.Next;
+        //    if (previous == null)
+        //    {
+        //        first = swapWith;
+        //    }
+        //    else
+        //    {
+        //        previous.Next = swapWith;
+        //    }
+        //    swappee.Next = swapWith.Next;
+        //    swapWith.Next = swappee;
+        //}
+
+        //public void Sort()
+        //{
+        //    if (count == 0)
+        //    {
+        //        return;
+        //    }
+        //    while (true)
+        //    {
+        //        SinglyLinkedListNode left = first;
+        //        SinglyLinkedListNode right = first.Next;
+        //        bool swapOccured = false;
+        //        while (right != null)
+        //        {
+        //            if (left > right)
+        //            {
+        //                string value = left.Value;
+        //                left.Value = right.Value;
+        //                right.Value = value;
+        //                swapOccured = true;
+        //            }
+        //            left = right;
+        //            right = left.Next;
+        //        }
+        //        if (swapOccured)
+        //        {
+        //            Sort();
+        //        }
+        //    }
+        //}
+        //public void Sort()
+        //{
+        //    if (count == 0)
+        //    {
+        //        return;
+        //    }
+        //    while (true)
+        //    {
+        //        SinglyLinkedListNode left = first;
+        //        SinglyLinkedListNode right = first.Next;
+        //        bool swapOccured = false;
+        //        while (right != null)
+        //        {
+        //            if (left > right)
+        //            {
+        //                string value = left.Value;
+        //                left.Value = right.Value;
+        //                right.Value = value;
+        //                swapOccured = true;
+        //            }
+        //            left = right;
+        //            right = left.Next;
+        //        }
+        //        if (!swapOccured)
+        //        {
+        //            return;
+        //        }
+        //    }
+        //}
+
+        //public void Sort()
+        //{
+        //    while (!IsSorted())
+        //    {
+        //        SinglyLinkedListNode left = first;
+        //        SinglyLinkedListNode right = first.Next;
+        //        while (right != null)
+        //        {
+        //            if (left > right)
+        //            {
+        //                string value = left.Value;
+        //                left.Value = right.Value;
+        //                right.Value = value;
+        //            }
+        //            left = right;
+        //            right = left.Next;
+        //        }
+        //    }
+        //}
