@@ -15,17 +15,9 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params string[] values)
         {
-            if (values.Length == 0)
+            for (int i = 0; i < values.Length; i++)
             {
-                first = new SinglyLinkedListNode(null);
-                last = new SinglyLinkedListNode(null);
-            }
-            else
-            {
-                for (int i = 0; i < values.Length; i++)
-                {
-                    AddLast(values[i].ToString());
-                }
+                AddLast(values[i].ToString());
             }
         }
 

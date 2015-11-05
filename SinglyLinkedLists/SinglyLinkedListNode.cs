@@ -54,6 +54,10 @@ namespace SinglyLinkedLists
 
         public SinglyLinkedListNode(string value)
         {
+            if(value == null)
+            {
+                throw new ArgumentException();
+            }
             this.value = value;
 
             // Used by the visualizer:
@@ -101,7 +105,7 @@ namespace SinglyLinkedLists
         }
         public override string ToString()
         {
-              return Value.ToString();
+              return Value;
         }
     }
 }
